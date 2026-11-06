@@ -98,8 +98,8 @@ These are observed ranges from the deployed stack in `us-east-1`, measured with
 | Bottleneck | Before | After | Improvement |
 |---|---|---|---|
 | Access pattern | `Scan` **50,001 rows** · ~250–500 ms | `Query` on sparse GSI · **1 item** · ~5–30 ms | **~10–50×** |
-| Recomputed aggregate | `Scan` + sum **50,000 items** · ~1.2–2.7 s | cached `GetItem` · ~5–60 ms | **~20–400×** |
-| N+1 | **200** sequential `GetItem` · ~1.25–2.4 s | **2** `BatchGetItem` · ~45–92 ms | **~15–40×** |
+| Recomputed aggregate | `Scan` + sum **50,000 items** · ~1.2–2.7 s | cached `GetItem` · ~4–60 ms | **~15–400×** |
+| N+1 | **200** sequential `GetItem` · ~1.25–2.4 s | **2** `BatchGetItem` · ~38–92 ms | **~10–60×** |
 | Load test | — | **500/500** requests OK · p50 ~32–53 ms · p95 ~64–116 ms · ~1.7–2.9 s | 0 errors |
 
 The lab shows the number that the database actually produced. If DynamoDB is slow that day,
@@ -180,7 +180,7 @@ environment-specific value, which keeps deployment boring and repeatable.
 
 ### Cost and safety
 
-- On-demand billing. A full play costs roughly **3,000 read units** (≈ $0.001).
+- On-demand billing. A full play costs roughly **50,000 read units** (≈ $0.013) — about a cent, mostly the two deliberate full scans.
 - API Gateway throttles at **100 req/s with a burst of 200**.
 - Lambda is least-privilege: only `GetItem`, `PutItem`, `UpdateItem`, `Query`, `Scan` and
   `BatchGetItem` on the three tables, plus log writes to its own log group.

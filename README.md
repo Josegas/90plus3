@@ -71,7 +71,7 @@ Lambda — Node 20, arm64, 1 GB
 
 ### Cost and safety
 
-- On-demand billing. A full play costs roughly **3,000 read units** (≈ $0.001).
+- On-demand billing. A full play costs roughly **50,000 read units** (≈ $0.013) — about a cent, mostly the two deliberate full scans.
 - API Gateway throttles at **100 req/s, burst 200**.
 - Lambda is least-privilege: only `GetItem/PutItem/UpdateItem/Query/Scan/BatchGetItem`
   on the three tables.
