@@ -9,6 +9,8 @@ trace. No login. No install. No fake latency.
 
 - **Live site:** https://main.d9xx5tcy9t9zl.amplifyapp.com
 - **Public repo:** https://github.com/Josegas/90plus3
+- **Submission write-up:** [SUBMISSION.md](SUBMISSION.md)
+- **Screenshots:** [docs/screenshots](docs/screenshots)
 - **Visitor dashboard:** `/dashboard.html`
 - **Stack:** AWS Amplify · API Gateway (HTTP API) · Lambda (Node 20, arm64) · DynamoDB · CloudWatch
 

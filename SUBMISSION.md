@@ -100,7 +100,7 @@ These are observed ranges from the deployed stack in `us-east-1`, measured with
 | Access pattern | `Scan` **50,001 rows** · ~250–500 ms | `Query` on sparse GSI · **1 item** · ~5–30 ms | **~10–50×** |
 | Recomputed aggregate | `Scan` + sum **50,000 items** · ~1.2–2.7 s | cached `GetItem` · ~5–60 ms | **~20–400×** |
 | N+1 | **200** sequential `GetItem` · ~1.25–2.4 s | **2** `BatchGetItem` · ~45–92 ms | **~15–40×** |
-| Load test | — | **500/500** requests OK · p50 ~39–53 ms · p95 ~94–116 ms · ~2.3–2.9 s | 0 errors |
+| Load test | — | **500/500** requests OK · p50 ~32–53 ms · p95 ~64–116 ms · ~1.7–2.9 s | 0 errors |
 
 The lab shows the number that the database actually produced. If DynamoDB is slow that day,
 the lab is slow that day, and it says so.
