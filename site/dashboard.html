@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>90+3 — Visitor dashboard</title>
+<meta name="description" content="What visitors actually do in the 90+3 lab: funnel, countries, languages, devices and real API latency. Anonymous by default." />
+<meta name="theme-color" content="#05080c" />
+<meta name="robots" content="noindex" />
+<link rel="stylesheet" href="styles.css" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23ffc24b'/%3E%3Ctext x='32' y='42' font-family='monospace' font-size='26' font-weight='bold' text-anchor='middle' fill='%23231705'%3E90%3C/text%3E%3C/svg%3E" />
+</head>
+<body class="dash-page">
+
+<header class="top">
+  <div class="wrap top-in">
+    <a class="brand" href="index.html" aria-label="Back to the portfolio">
+      <span class="brand-mark">JGP</span>
+      <span>José García<small data-i18n="brand.role">Cloud &amp; DevOps</small></span>
+    </a>
+    <nav class="nav" aria-label="Sections">
+      <a href="index.html#lab" data-i18n="dash.nav.lab">The Lab</a>
+      <a href="index.html#work" data-i18n="nav.work">Work</a>
+      <a href="index.html#about" data-i18n="nav.about">About</a>
+    </nav>
+    <div class="top-right">
+      <div class="lang" role="group" aria-label="Language">
+        <button type="button" data-lang="es" aria-pressed="false">ES</button>
+        <button type="button" data-lang="en" aria-pressed="true">EN</button>
+      </div>
+      <a class="btn btn-ghost btn-sm" href="index.html" data-i18n="dash.back">Back to portfolio</a>
+    </div>
+  </div>
+</header>
+
+<main class="wrap dash">
+
+  <section class="dash-head">
+    <div class="eyebrow" data-i18n="dash.eyebrow">Visitor dashboard · live</div>
+    <h1 data-i18n="dash.title">The lab, from the inside.</h1>
+    <p class="lead" data-i18n-html="dash.sub">
+      Every play is measured anonymously: where visitors stop, what they fix, which language
+      they choose. No cookies, no pixels, no personal data — and <b>Do Not Track is respected</b>.
+    </p>
+    <div class="dash-meta">
+      <span class="live-dot"><i></i> <span data-i18n="t.live">live</span></span>
+      <span class="lb-sep"></span>
+      <span id="dashUpdated" data-i18n="dash.waiting">waiting for data…</span>
+      <span class="lb-sep"></span>
+      <span data-i18n="dash.ttl">anonymous events expire in 7 days</span>
+    </div>
+  </section>
+
+  <section class="kpis" aria-label="Key numbers">
+    <div class="kpi">
+      <b id="kVisits">—</b>
+      <span data-i18n="dash.k1">visits</span>
+      <i data-i18n="dash.k1s">unique sessions</i>
+    </div>
+    <div class="kpi">
+      <b id="kPlays">—</b>
+      <span data-i18n="dash.k2">matches started</span>
+      <i data-i18n="dash.k2s">entered the lab</i>
+    </div>
+    <div class="kpi">
+      <b id="kWins">—</b>
+      <span data-i18n="dash.k3">comebacks</span>
+      <i data-i18n="dash.k3s">3–2 in stoppage time</i>
+    </div>
+    <div class="kpi">
+      <b id="kSigns">—</b>
+      <span data-i18n="dash.k4">signed reports</span>
+      <i data-i18n="dash.k4s">joined the leaderboard</i>
+    </div>
+    <div class="kpi">
+      <b id="kRate">—</b>
+      <span data-i18n="dash.k5">completion</span>
+      <i data-i18n="dash.k5s">started → won</i>
+    </div>
+  </section>
+
+  <div class="dash-grid">
+    <section class="panel reveal">
+      <div class="panel-head">
+        <h2 data-i18n="dash.funnel">The funnel</h2>
+        <span data-i18n="dash.funnelSub">where visitors stop</span>
+      </div>
+      <div id="funnel" class="funnel">
+        <div class="empty" data-i18n="dash.empty">No data yet. Be the first to play.</div>
+      </div>
+    </section>
+
+    <section class="panel reveal">
+      <div class="panel-head">
+        <h2 data-i18n="dash.geo">Where they play from</h2>
+        <span data-i18n="dash.geoSub">estimated from browser locale</span>
+      </div>
+      <div id="countries" class="bars">
+        <div class="empty" data-i18n="dash.empty">No data yet. Be the first to play.</div>
+      </div>
+      <div class="panel-sub">
+        <h3 data-i18n="dash.devices">Devices</h3>
+        <div id="devices" class="split">
+          <div class="split-item"><b id="dMobile">—</b><span data-i18n="dash.mobile">Mobile</span></div>
+          <div class="split-item"><b id="dDesktop">—</b><span data-i18n="dash.desktop">Desktop</span></div>
+        </div>
+        <h3 data-i18n="dash.langs">Languages</h3>
+        <div id="langs" class="chips"></div>
+      </div>
+    </section>
+  </div>
+
+  <div class="dash-grid">
+    <section class="panel reveal">
+      <div class="panel-head">
+        <h2 data-i18n="dash.bench">Real API latency</h2>
+        <span data-i18n="dash.benchSub">measured server-side, DynamoDB</span>
+      </div>
+      <table class="bench-table">
+        <thead>
+          <tr>
+            <th data-i18n="dash.mode">Mode</th>
+            <th data-i18n="dash.calls">Calls</th>
+            <th data-i18n="dash.avg">Avg</th>
+            <th data-i18n="dash.last">Last</th>
+          </tr>
+        </thead>
+        <tbody id="benchBody">
+          <tr><td colspan="4" class="empty" data-i18n="dash.empty">No data yet. Be the first to play.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="panel reveal">
+      <div class="panel-head">
+        <h2 data-i18n="dash.engagement">Engagement</h2>
+        <span data-i18n="dash.engagementSub">what else they open</span>
+      </div>
+      <div class="engage">
+        <div class="engage-item"><b id="eProjects">—</b><span data-i18n="dash.projects">project clicks</span></div>
+        <div class="engage-item"><b id="eContact">—</b><span data-i18n="dash.contact">contact clicks</span></div>
+        <div class="engage-item"><b id="eShares">—</b><span data-i18n="dash.shares">shares</span></div>
+      </div>
+      <div class="panel-note" data-i18n-html="dash.note">
+        Counts are events, not people. A visitor can play more than once.
+        <b>Nothing here identifies anyone.</b>
+      </div>
+    </section>
+  </div>
+
+  <section class="panel reveal">
+    <div class="panel-head">
+      <h2 data-i18n="lab.feed">Live from the lab</h2>
+      <span class="live-dot"><i></i> <span data-i18n="t.live">live</span></span>
+    </div>
+    <ul id="feedList" class="feed-list">
+      <li class="empty-row" data-i18n="lab.feedEmpty">Waiting for the first move.</li>
+    </ul>
+  </section>
+
+  <p class="dash-foot" data-i18n-html="dash.foot">
+    Built with <b>Amplify · API Gateway · Lambda · DynamoDB · CloudWatch</b>.
+    Data is aggregate and anonymous. The code is public.
+  </p>
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <p>© 2026 José García · <span data-i18n="footer.built">built for the</span> <b>AWS Student Builder Challenge</b></p>
+    <div class="links">
+      <a href="index.html" data-i18n="dash.back">Back to portfolio</a>
+      <a href="index.html#lab" data-i18n="nav.lab">The Lab</a>
+      <a href="https://github.com/Josegas" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+</footer>
+
+<script src="config.js"></script>
+<script src="i18n.js"></script>
+<script src="dashboard.js"></script>
+</body>
+</html>

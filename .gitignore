@@ -1,0 +1,18 @@
+# Terraform
+infra/.terraform/
+infra/.terraform.lock.hcl
+infra/terraform.tfstate
+infra/terraform.tfstate.backup
+infra/.build/
+infra/*.tfvars
+
+# Local data
+dev/data.json
+
+# Node
+node_modules/
+npm-debug.log*
+
+# OS / editors
+.DS_Store
+*.swp
