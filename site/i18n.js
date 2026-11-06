@@ -79,7 +79,7 @@
       'stack.evd.data': 'datos + agentes',
       'stack.evd.every': 'cada commit',
       'stack.legend1': 'Probado en partido',
-      'stack.legend2': 'Enviado en proyectos de equipo',
+      'stack.legend2': 'Usado en proyectos de equipo',
       'stack.legend3': 'Subiendo — entrenando con el primer equipo',
 
       'lab.eyebrow': '03 · El laboratorio',
@@ -119,9 +119,9 @@
 
       'about.eyebrow': '04 · Sobre mí',
       'about.title': 'La versión corta.',
-      'about.p1': 'Soy <strong>José Ángel García Pérez</strong>, ingeniero de software de Culiacán, Sinaloa. Estudio en el <strong>Instituto Tecnológico de Culiacán</strong> y he pasado los últimos años enviando proyectos en equipo: plataformas Laravel, servicios Java, trabajo de datos en Python y frontends Vue.',
+      'about.p1': 'Soy <strong>José Ángel García Pérez</strong>, ingeniero de software de Culiacán, Sinaloa. Estudio en el <strong>Instituto Tecnológico de Culiacán</strong> y he pasado los últimos años llevando a producción proyectos en equipo: plataformas Laravel, servicios Java, trabajo de datos en Python y frontends Vue.',
       'about.p2': 'En algún punto entre el bug de las 11 de la noche y la demo de las 8 de la mañana encontré lo que hago bien: <strong>diagnosticar sistemas bajo presión</strong>. Leo la falla, aíslo la causa y entrego el arreglo. Esa es la habilidad que traigo a cloud y DevOps.',
-      'about.pull': 'No memoricé la sintaxis. <b>Diagnostico sistemas.</b> No es lo mismo.',
+      'about.pull': 'No memorizo sintaxis. <b>Diagnostico sistemas.</b> No es lo mismo.',
       'about.p3': 'Este sitio es la prueba, no la promesa: un API real, carga real y números reales. Todo lo que mediste en el lab corrió en AWS — y el código es público.',
       'about.f1k': 'Base',
       'about.f1v': 'Culiacán, Sinaloa, México',
