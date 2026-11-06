@@ -26,7 +26,7 @@
       'hero.cta2': 'Ver mi trabajo',
 
       'lab.online': 'Lab en línea',
-      'lab.stat1': 'managers hoy',
+      'lab.stat1': 'partidas hoy',
       'lab.stat2': 'le ganaron al cuello de botella',
       'lab.stat3': 'mejor p95',
       'lab.todayTop': 'Top 3 de hoy',

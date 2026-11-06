@@ -7,7 +7,8 @@ A bilingual portfolio with a public, interactive lab: any visitor can inherit a 
 that is **0–2 down**, fix three real bottlenecks, see their rank and leave an anonymous
 trace. No login. No install. No fake latency.
 
-- **Live site:** https://main.d2example.amplifyapp.com *(replace with the real URL after deploy)*
+- **Live site:** https://main.d9xx5tcy9t9zl.amplifyapp.com
+- **Public repo:** https://github.com/Josegas/90plus3
 - **Visitor dashboard:** `/dashboard.html`
 - **Stack:** AWS Amplify · API Gateway (HTTP API) · Lambda (Node 20, arm64) · DynamoDB · CloudWatch
 
